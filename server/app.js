@@ -37,6 +37,12 @@ app.post("/send-welcome", async(req,res)=>{
        })
     }
 }) 
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "API is running 🚀"
+  })
+})
 app.post("/send-otp", async (req,res)=>{
     try{
         const{email,otp}=req.body
