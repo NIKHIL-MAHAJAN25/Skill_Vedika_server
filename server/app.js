@@ -6,8 +6,7 @@ const cors = require("cors")
 const dotenv=require('dotenv')
 dotenv.config();
 const mail=require('../server/utilities/mail')
-const aiRouter = require('./routes/routes')
-app.use(express.json())
+const aiRouter = require('./routes/allRoutes')
 app.use(express.urlencoded())
 const PORT=process.env.PORT;
 
@@ -78,5 +77,8 @@ app.all(/(.*)/, (req, res) => {
         success: false,
         message: "No such API!!"
     })
+})
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`)
 })
 module.exports=app;
