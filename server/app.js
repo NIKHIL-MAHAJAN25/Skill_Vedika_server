@@ -6,6 +6,7 @@ const cors = require("cors")
 const dotenv=require('dotenv')
 dotenv.config();
 const mail=require('../server/utilities/mail')
+const aiRouter = require('./routes/routes')
 app.use(express.json())
 app.use(express.urlencoded())
 const PORT=process.env.PORT;
@@ -69,6 +70,7 @@ app.post("/send-otp", async (req,res)=>{
       })
     }
 })
+app.use('/', aiRouter)
 
 app.all(/(.*)/, (req, res) => {
     res.send({
