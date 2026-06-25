@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Environment variables (NEVER commit these — contains your Gemini key, Mongo URI, etc.)
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Uploaded files (multer destination — don't commit user-uploaded resumes/images)
+public/students/*
+!public/students/.gitkeep
+
+# Optional: build/cache artifacts
+dist/
+build/
+.cache/
