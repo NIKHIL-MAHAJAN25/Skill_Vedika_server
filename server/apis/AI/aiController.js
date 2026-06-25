@@ -12,11 +12,17 @@ exports.analyzeResume = async (req, res) => {
         }
 
         const rawResult = await analyzeResume(resumeText, jobDesc);
-       let analysis;
 
+        const cleaned = rawResult
+            .replace(/```json/g, "")
+            .replace(/```/g, "")
+            .trim();
+
+        let analysis;
         try {
-            analysis = JSON.parse(rawResult);
+            analysis = JSON.parse(cleaned);
         } catch (e) {
+            console.error("JSON parse failed. Raw output was:", rawResult);
             return res.status(500).json({
                 success: false,
                 message: "AI returned an invalid response."
