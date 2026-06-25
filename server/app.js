@@ -5,9 +5,11 @@ const cors = require("cors")
 
 const dotenv=require('dotenv')
 dotenv.config();
+app.use(express.json())
+app.use(express.urlencoded())
 const mail=require('../server/utilities/mail')
 const aiRouter = require('./routes/allRoutes')
-app.use(express.urlencoded())
+
 const PORT=process.env.PORT;
 
 app.post("/send-welcome", async(req,res)=>{

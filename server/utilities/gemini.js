@@ -25,6 +25,9 @@ In both cases:
 - Be honest, not encouraging for its own sake.
 - Years of experience must factor into the score.
 
+PIMPORTANT — OUTPUT AUDIENCE:
+This output is shown directly to the resume owner inside an app, with no recruiter or human intermediary reading it first. Write the "summary" field speaking directly TO the candidate (use "you"/"your", not "the candidate" or third person). It should read like direct, honest feedback a mentor would give them about their own resume — clear enough that they immediately understand what's missing and what to fix, without needing anyone to translate or explain it further.
+
 PROFILE:
 ${resumeText}
 
@@ -35,7 +38,7 @@ Output ONLY a JSON string with this structure (no markdown code blocks, no comme
 {
   "score": 0-100,
   "missing_keywords": ["skill1", "skill2"],
-  "summary": "Specific, honest summary."
+  "summary": "Direct, honest feedback written TO the candidate in second person ('you'/'your'). Clear and actionable, no recruiter jargon or third-person framing."
 }
 `.trim();
 
