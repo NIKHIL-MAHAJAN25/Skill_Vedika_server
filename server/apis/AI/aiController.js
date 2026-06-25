@@ -12,10 +12,20 @@ exports.analyzeResume = async (req, res) => {
         }
 
         const rawResult = await analyzeResume(resumeText, jobDesc);
+       let analysis;
+
+        try {
+            analysis = JSON.parse(rawResult);
+        } catch (e) {
+            return res.status(500).json({
+                success: false,
+                message: "AI returned an invalid response."
+            });
+        }
 
         res.json({
             success: true,
-            data: rawResult
+            data: analysis
         });
     } catch (err) {
         console.error("Gemini analysis error:", err);
